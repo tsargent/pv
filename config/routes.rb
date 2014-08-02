@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'stories/index'
+
+  resources :foos
+
+  get 'pages/home'
+  get '/thanks' => 'pages#thanks'
+
+  get 'admin/index'
+  get '/share' => 'stories#new'
 
   # get 'static/home'
 
@@ -7,9 +14,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static#home'
+  root 'pages#home'
 
   resources :stories
+  resources :posts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

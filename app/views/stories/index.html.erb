@@ -1,4 +1,9 @@
 <% @stories.each do |story| %>
-<p><%= story.excerpt %></p>
+
+	<div class="story">
+		
+		<%= circle_hands_thumb(story) %>
+		<p><%= link_to(story.excerpt, story) %></p>
+	</div>
 
 <% end %>

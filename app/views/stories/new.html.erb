@@ -1,0 +1,71 @@
+
+<div id="stories_new">
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Share your story</h2>
+			<p class="lead">If you've had an abortion, we encourage you to share your story. There is no "right" story for Project Voice.</p>
+			<p class="lead">Before you submit, please read the following:</p>
+		
+		<ul class="list">
+			<li>We welcome firsthand accounts. If you know someone who has had an abortion, please encourage them to submit their own story.</li>
+			<li>Focus on your own experiences; refrain from generalizing, assuming, or speaking for others.</li>
+			<li>Avoid using names or identifying characteristics of anyone involved in your story.</li>
+			<li>Project Voice is not a space for political messages. It is a space for personal stories only.</li>
+			<li>And please upload a photo of your hands!</li>
+		</ul>
+		<p class="hands">
+			<% @examples.each do |example| %>
+				<%= circle_hands_thumb(example) %>
+			<% end %>
+		</p>
+
+		</div>
+		<div class="col-md-6">
+			<%= form_for(@story) do |f| %>
+			    <%= f.text_area :original, class: 'form-control' %>
+			    <div class="row">
+
+					<div class="col-md-3">
+			    		<%= f.label :age %>
+			    		<%= f.text_field :age, class: 'form-control' %>
+			    	</div>
+
+			    	<div class="col-md-3">
+			    		<%= f.label :country %>
+			    		<%= f.text_field :country, class: 'form-control' %>
+			    	</div>
+
+			    	<div class="col-md-3">
+			    		<%= f.label :state, 'State/Province' %>
+			    		<%= f.text_field :state, class: 'form-control' %>
+			    	</div>
+
+			    	<div class="col-md-3">
+					    <span class="btn btn-default btn-file">
+					    	<%= f.file_field :photo %>Photo
+						</span> 
+					</div>
+
+			    </div>
+
+			    <hr/>
+			    <div class="row">
+			    	<div class="col-md-6">
+			    		<%= f.label :email, 'Email address' %>
+			    		<%= f.text_field :email, class: 'form-control' %>
+			    	</div>
+			    	<div class="col-md-6">
+			    		<%= label :email_confirmation, 'Confirm email address' %>
+			    		<%= text_field(:story, :email_confirmation, {class: 'form-control'})%>
+			    	</div>
+
+			    </div>
+				<hr/>
+			    <%= f.submit 'Submit', class: "btn btn-default" %>
+			<% end %>
+
+		</div>
+
+	</div>
+
+</div>

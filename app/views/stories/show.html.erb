@@ -1,0 +1,24 @@
+<div id="stories_show">
+	<div class="row">
+		<div class="col-md-12">
+			<header id="story_header">
+			</header>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3">
+			<aside id="sidebar_1">
+				<%= circle_hands_thumb(@story) %>
+				<%= simple_format @story.excerpt, class: 'excerpt lead' %>
+				<p><%= excerpt_location(@story) %> </p>
+			</aside>
+		</div>
+		<div class="col-md-6">
+			<article><%= simple_format @story.edit %></article>
+		</div>
+		<div class="col-md-3">side</div>
+
+	</div>
+
+</div>

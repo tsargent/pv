@@ -34,4 +34,11 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+
+  PAPERCLIP_STORAGE_OPTIONS = {
+    :storage => :s3, 
+    :bucket => 'project_voice',    
+    :s3_credentials => "#{Rails.root}/config/s3.yml"
+  }
 end
