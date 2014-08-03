@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/thanks' => 'pages#thanks'
 
   get 'admin/index'
-  get '/share' => 'stories#new'
+  # get '/share' => 'stories#new'
 
   # get 'static/home'
 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
+  get '/stories/subregion_options' => 'stories#subregion_options'
   resources :stories
   resources :posts
 

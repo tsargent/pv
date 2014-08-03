@@ -13,6 +13,11 @@ gem 'bootstrap-sass'
 gem 'paperclip'
 gem 'aws-sdk'
 
+gem 'carmen-rails'
+# gem 'country_select', github: 'stefanpenner/country_select'
+# gem 'countries'
+
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
