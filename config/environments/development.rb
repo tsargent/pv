@@ -37,8 +37,5 @@ Rails.application.configure do
 
 
   PAPERCLIP_STORAGE_OPTIONS = {
-    :storage => :s3, 
-    :bucket => 'project_voice',    
-    :s3_credentials => "#{Rails.root}/config/s3.yml"
   }
 end
