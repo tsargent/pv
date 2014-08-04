@@ -4,7 +4,6 @@ class Story < ActiveRecord::Base
 
   validates :email, :confirmation =>true
   validates :email_confirmation, :presence =>true
-
   validates :original, :presence => true
 
   has_attached_file :photo, {
@@ -16,6 +15,7 @@ class Story < ActiveRecord::Base
 			:small => "200x140#"
 		}
 	}
+  validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
 	scope :published, -> { where(display: true) }
 	scope :with_photos, -> { where("photo_file_name IS NOT NULL") }
