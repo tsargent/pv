@@ -1,0 +1,49 @@
+<%= form_for([:admin, @story]) do |f| %>
+  <% if @story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+      <% @story.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+
+      <div class="field">
+        <%= f.label :display %>
+        <%= f.check_box :display, class: '' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :original, 'Original' %><br>
+        <%= f.text_area :original, class: 'form-control', readonly: 'true', rows: 20  %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :edit, 'Edit' %><br>
+        <%= f.text_area :edit, class: 'form-control', rows: 20  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :excerpt %><br>
+        <%= f.text_area :excerpt, class: 'form-control' %>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

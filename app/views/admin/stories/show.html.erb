@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<%= link_to 'Edit', edit_admin_story_path(@story) %> |
+<%= link_to 'Back', admin_stories_path %>
+<hr/>
+
+<div class="row">
+
+
+	<div class="col-md-4">
+		<p>First: <%= @story.first %></p>
+		<p>Last: <%= @story.last %></p>
+		<p>Email: <%= @story.email %></p>
+		<p>Country: <%= @story.country %></p>
+		<p>State: <%= @story.state %></p>
+		<p>Age: <%= @story.age %></p>
+	</div>
+
+	<div class="col-md-4">
+		<p>Created at: <%= @story.created_at %></p>
+		<p>Updated at: <%= @story.updated_at %></p>
+
+	</div>
+
+	<div class="col-md-4">
+		<%= image_tag @story.photo.url, class: '' %>
+	</div>
+
+</div>
+
+<hr/>
+
+<div class="row">
+
+	<div class="col-md-4">
+		<h4>Original</h4>
+		<%= simple_format @story.original %>
+	</div>
+
+
+	<div class="col-md-4">
+		<h4>Edit</h4>
+		<%= simple_format @story.edit %>
+	</div>
+
+
+	<div class="col-md-4">
+		<h4>Excerpt</h4>
+		<%= simple_format @story.excerpt %>
+	</div>
+</div>
+
+<hr/>
+
+
+
+<%= link_to 'Edit', edit_admin_story_path(@story) %> |
+<%= link_to 'Back', admin_stories_path %>

@@ -24,5 +24,13 @@ class Story < ActiveRecord::Base
     	{:bucket => ENV['AWS_BUCKET'], :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
   	end
 
+  	def next
+		Story.published.where("created_at > ?", self.created_at).order("created_at").first
+  	end
+
+  	def prev
+		Story.published.where("created_at < ?", self.created_at).order("created_at DESC").first
+  	end
+
 
 end

@@ -20,5 +20,23 @@ module ApplicationHelper
   		Carmen::Country.all.select{|c| %w{US CA}.include?(c.code)}
 	end
 
+	def link_next(story)
+		if story.next 
+			link_to(story.next, html_options = {}) do
+  				icon('chevron-circle-right') + ' Next Story' 
+			end
+		end
+	end
+
+
+
+
+	def link_prev(story)
+		if story.prev
+			link_to(story.prev, html_options = {}) do
+  				icon('chevron-circle-left') + ' Prev Story'
+			end
+		end
+	end
 
 end
