@@ -56,7 +56,7 @@ class Admin::StoriesController < AdminController
   def destroy
     @story.destroy
     respond_to do |format|
-      format.html { redirect_to admin_storys_url, notice: 'story was successfully destroyed.' }
+      format.html { redirect_to admin_stories_url, notice: 'story was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
