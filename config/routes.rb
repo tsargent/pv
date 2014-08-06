@@ -67,6 +67,7 @@ Rails.application.routes.draw do
       # Directs /admin/products/* to Admin::ProductsController
       # (app/controllers/admin/products_controller.rb)
       resources :stories
+      resources :posts
       resources :foos
       root "stories#index"
     end
