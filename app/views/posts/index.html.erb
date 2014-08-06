@@ -15,7 +15,9 @@
 					<h3><%= link_to post.title, post %></h3>
 					<% unless post.photo.blank? %>
 						<div class="photo_container">
+							<a href="<%= post_path(post) %>">
 							<%= image_tag post.photo.url(:medium), class: 'post-photo' %>
+							</a>
 							<p class="help-block"><%= post.photo_caption %></p>
 						</div>
 					<% end %>
