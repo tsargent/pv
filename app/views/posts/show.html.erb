@@ -12,7 +12,7 @@
 			</aside>
 		</div>
 		<div class="col-md-6">
-			<p class="small"><%= @post.created_at.strftime("%b %d, %Y") %></p>
+			<p class=""><small><%= @post.created_at.strftime("%b %d, %Y") %></small></p>
 			<h3><%= @post.title %></h3>
 			<% unless @post.photo.blank? %>
 			<div class="photo_container">

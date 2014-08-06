@@ -2,17 +2,17 @@
 <div id="posts_index">
 	<div class="row">
 
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<aside id="sidebar_1">
 			</aside>
 		</div>
 
 
-		<div class="col-md-8">
+		<div class="col-md-6">
 			<% @posts.each do |post| %>
 				<div class="post">
-					<p class="small"><%= post.created_at.strftime("%b %d, %Y") %></p>
-					<h2><%= link_to post.title, post %></h2>
+					<p class=""><small><%= post.created_at.strftime("%b %d, %Y") %></small></p>
+					<h3><%= link_to post.title, post %></h3>
 					<% unless post.photo.blank? %>
 						<div class="photo_container">
 							<%= image_tag post.photo.url(:medium), class: 'post-photo' %>
@@ -25,7 +25,7 @@
 			<% end %>
 		</div>
 
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<aside id="sidebar_1">
 			</aside>
 		</div>
