@@ -28,7 +28,7 @@ class Admin::StoriesController < AdminController
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to @story, notice: 'story was successfully created.' }
+        format.html { redirect_to [:admin, @story], notice: 'story was successfully created.' }
         format.json { render :show, status: :created, location: @story }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::StoriesController < AdminController
   def update
     respond_to do |format|
       if @story.update(story_params)
-        format.html { redirect_to @story, notice: 'story was successfully updated.' }
+        format.html { redirect_to [:admin, @story], notice: 'story was successfully updated.' }
         format.json { render :show, status: :ok, location: @story }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::StoriesController < AdminController
   def destroy
     @story.destroy
     respond_to do |format|
-      format.html { redirect_to storys_url, notice: 'story was successfully destroyed.' }
+      format.html { redirect_to admin_storys_url, notice: 'story was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
