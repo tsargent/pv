@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'pages/home'
   get '/thanks' => 'pages#thanks'
+  get '/terms' => 'pages#terms'
 
   get 'admin/index'
   # get '/share' => 'stories#new'
