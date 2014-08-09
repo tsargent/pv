@@ -14,6 +14,9 @@ class StoriesController < ApplicationController
 
   def show
   	@story = Story.find(params[:id])
+    if(!@story.display) 
+      redirect_to stories_path
+    end
   end
 
 
