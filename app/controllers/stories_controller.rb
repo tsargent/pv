@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
   before_action :get_three_hands, only: [:new, :create]
 
   def index
-  	@stories = Story.published
+  	@stories = Story.published.order('created_at DESC')
   end
 
   def new
@@ -46,7 +46,7 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:original, :country, :state, :email, :email_confirmation)
+      params.require(:story).permit(:original, :country, :state, :email, :email_confirmation, :photo)
     end
 
     def get_three_hands

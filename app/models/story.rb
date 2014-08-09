@@ -4,7 +4,6 @@ class Story < ActiveRecord::Base
 
   validates :email, :confirmation =>true
   validates :email_confirmation, :presence =>true
-
   validates :original, :presence => true
 
   has_attached_file :photo, {
@@ -16,12 +15,21 @@ class Story < ActiveRecord::Base
 			:small => "200x140#"
 		}
 	}
+  validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
 	scope :published, -> { where(display: true) }
 	scope :with_photos, -> { where("photo_file_name IS NOT NULL") }
 
 	def s3_credentials
     	{:bucket => ENV['AWS_BUCKET'], :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
+  	end
+
+  	def next
+		Story.published.where("created_at > ?", self.created_at).order("created_at").first
+  	end
+
+  	def prev
+		Story.published.where("created_at < ?", self.created_at).order("created_at DESC").first
   	end
 
 
