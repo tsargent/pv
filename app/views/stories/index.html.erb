@@ -5,7 +5,9 @@
 		<thead>
 			<tr>
 				<th>Country</th>
-				<th>State/Province</th>
+				<th>State</th>
+				<th>Published</th>
+				<th></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -16,8 +18,9 @@
 				<tr created-at="<%= story.created_at %>">
 					<td><%= story.country %></td>
 					<td><%= story.state %></td>
+					<td><span class="nowrap"><%= format_date story.created_at %></span></td>
 					<td><%= link_to(story.excerpt, story) %></td>
-					<!-- <td><%= circle_hands_thumb(story) %></td> -->
+					<td class="stories-index-thumb"><%= circle_hands_thumb_link(story) %></td>
 				</tr>
 
 					

@@ -9,12 +9,21 @@ $font-family-sans-serif: 'Open Sans', 'Helvetica Neue', 'Helvetica';
 
 body, html {
 	background: #fcfcfc;
+	background: #f8f8f8;
+
 }
 
 .thumbnail {
 	width: 100%;
 }
 
+.navbar {
+	margin-bottom: 0;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
 
 .btn-file {
     position: relative;
@@ -117,6 +126,10 @@ body, html {
 	padding: 20px;
 }
 
+#stories_index td {
+	// vertical-align: middle;
+	height: 60px;
+}
 
 #posts_index {
 	.date_line {
@@ -130,8 +143,20 @@ body, html {
 	}
 }
 
+.stories-index-thumb a {
+	display: block;
+	width: 40px;
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
 #main {
+	padding-top: 40px;
 	padding-bottom: 60px;
+	background: #fcfcfc;
+
 }
 
 #footer {
