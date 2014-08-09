@@ -1,0 +1,24 @@
+<h2>New story submitted</h2>
+
+<p><%= link_to(@story.id, admin_story_url(@story)) %></p>
+
+<p><b>Date:</b></p>
+<p><%= @story.created_at %></p>
+
+<p><b>Email:</b></p>
+<p><%= @story.email %></p>
+
+<p><b>Country:</b></p>
+<p><%= @story.country %></p>
+
+<p><b>State:</b></p>
+<p><%= @story.state %></p>
+
+<p><b>Age:</b></p>
+<p><%= @story.age %></p>
+
+<p><b>Photo:</b></p>
+<p><%= image_tag @story.photo.url(:small) %></p>
+
+<p><b>Story:</b></p>
+<%= simple_format @story.original %>

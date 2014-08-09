@@ -22,6 +22,8 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
+        StoryMailer.new_submission(@story).deliver
+        StoryMailer.thank_you(@story).deliver
         format.html { redirect_to thanks_path, notice: 'Story was successfully submitted.' }
         format.json { render :show, status: :created, location: @story }
       else
