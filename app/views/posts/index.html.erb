@@ -11,7 +11,7 @@
 		<div class="col-md-6">
 			<% @posts.each do |post| %>
 				<div class="post">
-					<p class=""><small><%= post.created_at.strftime("%b %d, %Y") %></small></p>
+					<p class=""><small><%= format_date post.created_at %></small></p>
 					<h3><%= link_to post.title, post %></h3>
 					<% unless post.photo.blank? %>
 						<div class="photo_container">

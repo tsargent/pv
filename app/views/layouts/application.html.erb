@@ -55,9 +55,53 @@
 </nav>
 
 
-	<div class="container">
+	<div id="main" class="container">
 		<%= yield %>
 	</div>
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+
+                <div class="footer-col col-md-4">
+          <small>
+            <ul class="list list-inline">
+              <li><%= link_to 'Read a story', stories_path %></li> | 
+              <li><%= link_to 'Share your story', new_story_path %></li> | 
+              <li><%= link_to 'News', posts_path %></li>
+            </ul>
+            <p><strong>Contact</strong></p>
+          <p><a href="mailto:info@projectvoice.org">info@projectvoice.org</a></p>
+          </small>
+        </div>
+
+
+        <div class="footer-col col-md-4">
+          <small>
+          
+          <p><strong>Recent Stories</strong></p>
+          <ul class="list list-unstyled">
+          <% @recent_stories.each do |story| %>
+            <li><%= link_to "#{format_date(story.created_at)} #{story.excerpt}", story %></li>
+          <% end %>
+          </ul>
+          </small>
+        </div>
+
+
+        <div class="footer-col col-md-4">
+          <small>
+            <p><strong>More Project Voice</strong></p>
+          <ul class="list list-unstyled visible-md-*">
+            <li><a href="https://www.facebook.com/voicestories" target="_blank">Project Voice on Facebook  <%= icon('facebook') %>  </a></li>
+            <li><a href="https://twitter.com/VoiceStories" target="_blank">Project Voice on Twitter <%= icon('twitter') %></a></li>
+          </ul>
+          </small>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

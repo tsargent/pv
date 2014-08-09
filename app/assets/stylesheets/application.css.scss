@@ -129,3 +129,18 @@ body, html {
 		max-width: 100%;
 	}
 }
+
+#main {
+	padding-bottom: 60px;
+}
+
+#footer {
+	.footer-col:last-child {
+		// text-align: right;
+	}
+	a {
+		color: $gray-light;
+	}
+	background: #f8f8f8;
+	padding: 60px 0;
+}

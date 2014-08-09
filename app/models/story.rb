@@ -19,6 +19,7 @@ class Story < ActiveRecord::Base
 
 	scope :published, -> { where(display: true) }
 	scope :with_photos, -> { where("photo_file_name IS NOT NULL") }
+	scope :recent, -> { where(display: true).order('created_at DESC').limit(3) }
 
 	def s3_credentials
     	{:bucket => ENV['AWS_BUCKET'], :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}

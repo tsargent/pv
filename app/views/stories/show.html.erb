@@ -11,7 +11,8 @@
 			<aside id="sidebar_1">
 				<%= circle_hands_thumb(@story) %>
 				<%= simple_format @story.excerpt, class: 'excerpt lead' %>
-				<p><%= excerpt_location(@story) %> </p>
+				<%= simple_format excerpt_location(@story) %>
+				<%= simple_format(format_date @story.created_at) %>
 			</aside>
 		</div>
 		<div class="col-md-6">
