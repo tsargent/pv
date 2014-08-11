@@ -40,6 +40,9 @@ class Admin::StoriesController < AdminController
   # PATCH/PUT /storys/1
   # PATCH/PUT /storys/1.json
   def update
+    
+    @story.email_confirmation = @story.email  # kind of overrides email validation
+
     respond_to do |format|
       if @story.update(story_params)
         format.html { redirect_to [:admin, @story], notice: 'story was successfully updated.' }
@@ -69,6 +72,6 @@ class Admin::StoriesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:excerpt)
+      params.require(:story).permit(:excerpt, :edit, :email, :contry, :state, :age, :display)
     end
 end
