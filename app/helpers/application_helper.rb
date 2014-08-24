@@ -16,6 +16,15 @@ module ApplicationHelper
 		end
 	end
 
+	def story_location(story)
+		if story.full_sub_region
+			raw "#{story.full_sub_region},<br/> #{story.full_region}"
+		else
+			"#{story.full_region}"
+		end
+
+	end
+
 	def only_us_and_canada
   		Carmen::Country.all.select{|c| %w{US CA}.include?(c.code)}
 	end

@@ -132,9 +132,17 @@ body, html {
 	padding: 20px;
 }
 
-#stories td {
-	// vertical-align: middle;
-	height: 60px;
+#stories {
+	.story > div {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid $gray-lighter;
+	}
+	.story {
+		.circle-hands-thumb {
+			max-height: 40px;
+		}
+	}
 }
 
 #posts_index {
