@@ -1,5 +1,6 @@
 <div id="stories_index">
 
+<%= paginate @stories %>
 
 	<table class="table table-striped">
 		<thead>
@@ -22,14 +23,12 @@
 					<td><%= link_to(story.excerpt, story) %></td>
 					<td class="stories-index-thumb"><%= circle_hands_thumb_link(story) %></td>
 				</tr>
-
-					
-
 			<% end %>
 		</tbody>
 
 	</table>
 
+<%= paginate @stories %>
 
 
 </div>

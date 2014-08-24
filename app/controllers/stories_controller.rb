@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
   before_action :get_three_hands, only: [:new, :create]
 
   def index
-  	@stories = Story.published.order('created_at DESC')
+  	@stories = Story.published.order('created_at DESC').page(params[:page])
   end
 
   def new
