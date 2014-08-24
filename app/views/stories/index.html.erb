@@ -1,7 +1,4 @@
-<div id="stories_index">
-
-<%= paginate @stories %>
-
+<div id="stories">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -12,23 +9,9 @@
 				<th></th>
 			</tr>
 		</thead>
-		<tbody>
-
-
-			<% @stories.each do |story| %>
-				<tr created-at="<%= story.created_at %>">
-					<td><%= story.country %></td>
-					<td><%= story.state %></td>
-					<td><span class="nowrap"><%= format_date story.created_at %></span></td>
-					<td><%= link_to(story.excerpt, story) %></td>
-					<td class="stories-index-thumb"><%= circle_hands_thumb_link(story) %></td>
-				</tr>
-			<% end %>
+		<tbody class="page">
+			<%= render @stories %>
 		</tbody>
-
 	</table>
-
-<%= paginate @stories %>
-
-
+	<%= paginate @stories %>
 </div>

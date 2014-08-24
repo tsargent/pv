@@ -1,0 +1,7 @@
+<tr class="story" created-at="<%= story.created_at %>">
+	<td><%= story.country %></td>
+	<td><%= story.state %></td>
+	<td><span class="nowrap"><%= format_date story.created_at %></span></td>
+	<td><%= link_to(story.excerpt, story) %></td>
+	<td class="stories-index-thumb"><%= circle_hands_thumb_link(story) %></td>
+</tr>
