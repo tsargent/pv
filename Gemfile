@@ -14,9 +14,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 gem 'carmen-rails'
-# gem 'country_select', github: 'stefanpenner/country_select'
-# gem 'countries'
-
+gem 'geokit'
 gem 'figaro'
 
 gem 'postmark-rails'
