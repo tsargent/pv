@@ -1,16 +1,16 @@
 
 <div class="story">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-2 small">
 			<%= story_location story %> 
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-2 small">
 			<span class="nowrap"><%= format_date story.created_at %></span>
 		</div>
 		<div class="col-md-6">
 			<%= link_to(story.excerpt, story) %>
 		</div>
-		<div class="col-md-2"><%= circle_hands_thumb_link(story) %></div>
+		<div class="col-md-2 hidden-sm hidden-xs text-right"><%= circle_hands_thumb_link(story) %></div>
 	</div>
 
 

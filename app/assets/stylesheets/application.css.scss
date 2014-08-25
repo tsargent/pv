@@ -121,6 +121,12 @@ body, html {
 
 }
 
+#home .story {
+	text-align: center;
+	@media (min-width: $screen-md-min) {
+		text-align: left;
+	}
+}
 
 #story_list_top {
 	margin-bottom: 30px;

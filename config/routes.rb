@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/stories/subregion_options' => 'stories#subregion_options'
   resources :stories
-  resources :posts
+  resources :posts, path: 'news'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -35,18 +35,10 @@ class Story < ActiveRecord::Base
 
 
   	def full_sub_region
-  		# if self.state && self.country
-	  	# 	country = Carmen::Country.coded( self.country )
-	  	# 	country.subregions.coded(self.state)
-	  	# end
 	  	if self.state && !self.state.empty?
 	  		country = Carmen::Country.coded( self.country )
 	  		country.subregions.coded(self.state).name
 	  	end
-
-  		# if self.state != nil
-  		# 	state_name = country.subregions.coded(self.state).name
-  		# end
   	end
 
   	def full_region
