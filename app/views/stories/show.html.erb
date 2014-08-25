@@ -20,15 +20,10 @@
 		</div>
 		<div class="col-md-3">
 			<nav>
-				<ul class="list list-unstyled">
-					<li>
-						<%= link_next(@story) %>
-					</li>
-					<li>
-						<%= link_prev(@story) %>
+				<%= link_next_with_excerpt(@story) %>
+				<hr/>
+				<%= link_prev_with_excerpt(@story) %>
 
-					</li>
-				</ul>
 			</nav>
 		</div>
 

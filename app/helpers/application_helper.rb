@@ -38,6 +38,14 @@ module ApplicationHelper
 	end
 
 
+	def link_next_with_excerpt(story)
+		if story.next 
+			link_to(story.next, html_options = {}) do
+  				icon('angle-right') + ' Next: ' + story.next.excerpt
+			end
+		end
+	end
+
 	def link_prev(story)
 		if story.prev
 			link_to(story.prev, html_options = {}) do
@@ -45,6 +53,17 @@ module ApplicationHelper
 			end
 		end
 	end
+
+
+	def link_prev_with_excerpt(story)
+		if story.prev
+			link_to(story.prev, html_options = {}) do
+  				icon('angle-left') + ' Prev: ' + story.prev.excerpt
+			end
+		end
+	end
+
+
 
 	def link_next_post(post)
 		if post.next 
