@@ -103,6 +103,7 @@ body, html {
 
 	#sidebar_1 {
 		.excerpt {
+			color: $gray;
 		}
 		p {
 			color: $gray-light;
@@ -148,6 +149,12 @@ body, html {
 		.circle-hands-thumb {
 			max-height: 40px;
 		}
+		.story-date {
+			@media (max-width: $screen-md-min) {
+				margin-bottom: 15px;
+			}
+
+		}
 	}
 }
 
@@ -178,6 +185,15 @@ body, html {
 	background: #fcfcfc;
 
 }
+
+nav.prev_next {
+	font-weight: 100;
+	color: $gray-light;
+	a {
+	color: $gray-light;
+	}
+}
+
 
 #footer {
 	.footer-col:last-child {

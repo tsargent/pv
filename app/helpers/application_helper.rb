@@ -40,8 +40,8 @@ module ApplicationHelper
 
 	def link_next_with_excerpt(story)
 		if story.next 
-			link_to(story.next, html_options = {}) do
-  				icon('angle-right') + ' Next: ' + story.next.excerpt
+			link_to(story.next, html_options = { class: ''}) do
+  				story.next.excerpt
 			end
 		end
 	end
@@ -57,8 +57,8 @@ module ApplicationHelper
 
 	def link_prev_with_excerpt(story)
 		if story.prev
-			link_to(story.prev, html_options = {}) do
-  				icon('angle-left') + ' Prev: ' + story.prev.excerpt
+			link_to(story.prev, html_options = { class: ''}) do
+  				story.prev.excerpt
 			end
 		end
 	end

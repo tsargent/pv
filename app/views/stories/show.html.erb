@@ -14,15 +14,28 @@
 				<%= simple_format story_location(@story) %>
 				<%= simple_format(format_date @story.created_at) %>
 			</aside>
+			<hr class="visible-sm visible-xs" />
+
 		</div>
 		<div class="col-md-6">
 			<article><%= simple_format @story.edit %></article>
 		</div>
 		<div class="col-md-3">
-			<nav>
-				<%= link_next_with_excerpt(@story) %>
-				<hr/>
-				<%= link_prev_with_excerpt(@story) %>
+			<nav class="prev_next">
+
+				<hr class="visible-sm visible-xs" />
+				<% if @story.next %>
+					<p><span class="small">Next story:</span><br/><%= link_next_with_excerpt(@story) %></p>
+				<% end %>
+
+				<% if @story.next && @story.prev %>
+					<hr />
+				<% end %>
+
+				<% if @story.prev %>
+					<p><span class="small">Previous story:</span><br/><%= link_prev_with_excerpt(@story) %></p>
+				<% end %>
+
 
 			</nav>
 		</div>
