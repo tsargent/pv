@@ -187,6 +187,9 @@ body, html {
 }
 
 nav.prev_next {
+	.small {
+		text-transform: uppercase;
+	}
 	font-weight: 100;
 	color: $gray-light;
 	a {
