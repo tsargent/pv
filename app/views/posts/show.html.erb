@@ -21,7 +21,7 @@
 			</div>
 			<% end %>
 
-			<article><%= simple_format @post.body %></article>
+			<article><%= simple_format(@post.body, {}, sanitize: false) %></article>
 		</div>
 		<div class="col-md-3">
 			<nav>

@@ -21,7 +21,7 @@
 							<p class="help-block"><%= post.photo_caption %></p>
 						</div>
 					<% end %>
-					<%= simple_format post.body %>
+					<%= simple_format(post.body, {}, sanitize: false) %>
 				</div>
 				<hr/>
 			<% end %>
