@@ -15,7 +15,7 @@ role :db,  %w{deploy@104.131.46.98}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+server '104.131.46.98', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 set :stage, :staging
 set :rails_env, 'staging'
