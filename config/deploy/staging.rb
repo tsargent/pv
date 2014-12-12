@@ -19,6 +19,8 @@ server '104.131.46.98', user: 'deploy', roles: %w{web app}, my_property: :my_val
 
 set :stage, :staging
 set :rails_env, 'staging'
+set :deploy_to, '/home/deploy/pv'
+
 
 # Custom SSH Options
 # ==================

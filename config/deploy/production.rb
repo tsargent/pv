@@ -20,6 +20,8 @@ server '184.106.112.39', user: 'deploy', roles: %w{web app}, my_property: :my_va
 
 set :stage, :production
 set :rails_env, 'production'
+set :deploy_to, '/var/www/pv'
+
 
 
 # Custom SSH Options
