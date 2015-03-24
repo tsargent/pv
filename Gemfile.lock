@@ -94,6 +94,9 @@ GEM
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.2.12)
       activesupport (>= 3.0.0, < 5)
@@ -163,6 +166,10 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    raygun4ruby (1.1.5)
+      httparty (~> 0.11)
+      json
+      rack
     ref (1.0.5)
     sass (3.4.13)
     sass-rails (5.0.1)
@@ -221,6 +228,7 @@ DEPENDENCIES
   pg
   postmark-rails
   rails (= 4.2.1)
+  raygun4ruby
   sass-rails
   spring
   therubyracer
