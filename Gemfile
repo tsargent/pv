@@ -50,11 +50,11 @@ gem 'spring',        group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# gem 'capistrano', group: :development
-# gem 'capistrano-rails', group: :development
-# gem 'capistrano-rvm', group: :development
-# gem 'capistrano-bundler', group: :development
-# gem "capistrano-db-tasks", require: false
+gem 'capistrano', group: :development
+gem 'capistrano-rails', group: :development
+gem 'capistrano-rvm', group: :development
+gem 'capistrano-bundler', group: :development
+gem "capistrano-db-tasks", require: false
 
 
 # Use debugger
