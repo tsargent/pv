@@ -56,8 +56,6 @@ gem 'capistrano-rvm', group: :development
 gem 'capistrano-bundler', group: :development
 gem "capistrano-db-tasks", require: false
 
-gem 'raygun4ruby'
-
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
