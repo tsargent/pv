@@ -1,5 +1,5 @@
 class StoryMailer < ActionMailer::Base
-  default from: "info@projectvoice.org"
+  # default from: "info@projectvoice.org"
 
 
 
