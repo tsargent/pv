@@ -7,7 +7,7 @@ class Story < ActiveRecord::Base
   validates :original, :presence => true
 
   has_attached_file :photo,
-    path: "stories/:id/:style/:filename",
+    path: "/stories/:id/:style/:filename",
     styles: {
 			:thumb => "100x100#",
 			:small => "200x140#"
