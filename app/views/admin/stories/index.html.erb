@@ -7,6 +7,8 @@
       <th>Country</th>
       <th>Excerpt</th>
       <th>Display</th>
+      <th>Created</th>
+      <th>Updated</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +20,8 @@
         <td><%= story.full_region %></td>
         <td><%= story.excerpt %></td>
         <td><%= story.display %></td>
+        <td><%= story.created_at %></td>
+        <td><%= story.updated_at %></td>
         <td><%= link_to 'Show', [:admin, story] %></td>
         <td><%= link_to 'Edit', edit_admin_story_path(story) %></td>
         <td><%= link_to 'Destroy', [:admin, story], method: :delete, data: { confirm: 'Are you sure?' } %></td>
