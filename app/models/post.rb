@@ -4,9 +4,9 @@ class Post < ActiveRecord::Base
 
   has_attached_file :photo, {
 		:path => "posts/:id/:style/:filename",
-		:storage => :s3, 
+		:storage => :s3,
 		:s3_credentials => Proc.new{|a| a.instance.s3_credentials },
-		:styles => { 
+		:styles => {
 			:thumb => "100x100#",
 			:medium => "1200x1200>"
 		}
@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
 
 	scope :published, -> { where(display: true) }
 
-	
+
 	def s3_credentials
     	{:bucket => ENV['AWS_BUCKET'], :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
   	end

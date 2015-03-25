@@ -6,11 +6,9 @@ class Story < ActiveRecord::Base
   validates :email_confirmation, :presence =>true
   validates :original, :presence => true
 
-  has_attached_file :photo, {
-		:path => "stories/:id/:style/:filename",
-		:storage => :s3, 
-		:s3_credentials => Proc.new{|a| a.instance.s3_credentials },
-		:styles => { 
+  has_attached_file :photo,
+    path: "stories/:id/:style/:filename",
+    styles: {
 			:thumb => "100x100#",
 			:small => "200x140#"
 		}
