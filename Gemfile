@@ -11,7 +11,7 @@ gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 gem 'carmen-rails'
 # gem 'country_select', github: 'stefanpenner/country_select'
