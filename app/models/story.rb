@@ -12,7 +12,7 @@ class Story < ActiveRecord::Base
 			:thumb => "100x100#",
 			:small => "200x140#"
 		}
-	}
+
   validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
 	scope :published, -> { where(display: true) }
