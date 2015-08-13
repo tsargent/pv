@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :foos
 
+  get '/search' => 'application#search'
+
   get 'pages/home'
   get '/thanks' => 'pages#thanks'
   get '/terms' => 'pages#terms'
@@ -18,7 +20,11 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get '/stories/subregion_options' => 'stories#subregion_options'
-  resources :stories
+  resources :stories do
+    collection do
+      get 'search'
+    end
+  end
   resources :posts, path: 'news'
 
   # Example of regular route:

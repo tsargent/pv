@@ -6,6 +6,7 @@ class StoriesController < ApplicationController
   	@stories = Story.published.order('created_at DESC').page(params[:page])
   end
 
+
   def new
   	@story = Story.new
   	@examples = Story.published.with_photos.sample(3)
