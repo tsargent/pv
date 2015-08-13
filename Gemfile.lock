@@ -96,6 +96,8 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
+    geokit (1.9.0)
+      multi_json (>= 1.3.2)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     google-api-client (0.8.3)
@@ -265,6 +267,7 @@ DEPENDENCIES
   coffee-rails
   figaro
   font-awesome-sass
+  geokit
   google-api-client
   httparty
   jbuilder
