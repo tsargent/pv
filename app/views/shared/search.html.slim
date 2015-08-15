@@ -1,0 +1,29 @@
+
+#stories
+  .page
+    - if @searcher.errors
+      = @searcher.errors
+    - else
+
+      h4
+        = "#{@searcher.totalResultsString} results found for "
+        b = "#{@searcher.searchTerms}"
+
+
+
+      - if @searcher.totalResults > 0
+        hr
+        - @searcher.items.each do |item|
+          h4 = link_to raw(item['htmlTitle']), item['link']
+          p = raw(item['htmlSnippet'])
+          hr
+
+        nav
+          ul.pager
+            - if @searcher.previousPage?
+              li.previous
+                = link_to('Previous', params.merge(start: @searcher.previousStart))
+            - if @searcher.nextPage?
+              li.next
+                = link_to('Next', params.merge(start: @searcher.nextStart))
+

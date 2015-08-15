@@ -13,8 +13,10 @@ $ ->
     nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
     itemSelector: "#stories div.story" # selector for all items you'll retrieve
     loading:
-    	finishedMsg: ""
-    	msgText: "Loading more stories..."
+      finishedMsg: ""
+      msgText: "<i class='fa fa-spinner fa-spin'></i>"
+      img: ""
+
 
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.

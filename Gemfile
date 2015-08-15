@@ -14,9 +14,7 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 
 gem 'carmen-rails'
-# gem 'country_select', github: 'stefanpenner/country_select'
-# gem 'countries'
-
+gem 'geokit'
 gem 'figaro'
 
 gem 'postmark-rails'
@@ -41,6 +39,12 @@ gem 'jbuilder'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+
+gem 'google-api-client'
+gem 'httparty'
+
+gem "slim-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -58,5 +62,5 @@ gem "capistrano-db-tasks", require: false
 
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
 
