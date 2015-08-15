@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
 
 	before_filter :get_recent_stories
 
+
+    if Rails.env.staging?
+        http_basic_authenticate_with name: ENV['ADMIN_NAME'], password: ENV['ADMIN_PASSWORD']
+    end
+
   def searchOLD
 
     puts "\n"*10
