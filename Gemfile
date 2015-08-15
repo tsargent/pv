@@ -51,16 +51,6 @@ gem "slim-rails"
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-gem 'capistrano', group: :development
-gem 'capistrano-rails', group: :development
-gem 'capistrano-rvm', group: :development
-gem 'capistrano-bundler', group: :development
-gem "capistrano-db-tasks", require: false
-
-
 # Use debugger
 gem 'byebug', group: [:development, :test]
 
