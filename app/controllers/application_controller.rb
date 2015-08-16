@@ -7,96 +7,41 @@ class ApplicationController < ActionController::Base
 	before_filter :get_recent_stories
 
 
-    if Rails.env.staging?
-        http_basic_authenticate_with name: ENV['ADMIN_NAME'], password: ENV['ADMIN_PASSWORD']
-    end
-
-  def searchOLD
-
-    puts "\n"*10
-    puts params[:q]
-    page = params[:page] || 1
-    @page = page
-    offset = (page.to_i * 10) - 10
-    @offset = offset
-
-
-    # https://developers.google.com/custom-search/json-api/v1/using_rest
-    # https://www.googleapis.com/customsearch/v1?key=AIzaSyCMGfdDaSfjqv5zYoS0mTJnOT3e9MURWkU&cx=001087414392295562014:0wy_6-z6tsy&q=regret
-
-    # https://developers.google.com/custom-search/docs/xml_results#wsQueryTerms
-    require 'google/api_client'
-    client = Google::APIClient.new(authorization: nil)
-    customsearch = client.discovered_api('customsearch','v1')
-    result = client.execute(customsearch.cse.list,
-      q: params[:q],
-      start: 1,
-      num: 10,
-      cx: '001087414392295562014:0wy_6-z6tsy',
-      key: 'AIzaSyCMGfdDaSfjqv5zYoS0mTJnOT3e9MURWkU'
-    )
-
-
-    # puts "\n"*10
-    # puts "result.methods #{result.methods}"
-    # puts "result.next_page #{result.next_page}"
-    # puts "\n"*10
-    # puts "JSON result body#{JSON.parse(result.body)}"
-    # puts "\n"*10
-
-
-    # puts "\n"*10
-
-
-    json_body = JSON.parse(result.body)
-
-    # puts "result.body"
-    # puts result.body
-
-
-    @totalResults = json_body['searchInformation']['totalResults']
-    @items = json_body['items']
-
-
-    # @stories = Story.all
-    render 'shared/search'
+  if Rails.env.staging?
+      http_basic_authenticate_with name: ENV['ADMIN_NAME'], password: ENV['ADMIN_PASSWORD']
   end
 
   def search
 
-    q = params[:q]
+    q = URI.escape(params[:q])
     start = params[:start] || 1
+    url = "https://www.googleapis.com/customsearch/v1?key=#{ENV['GOOGLE_SEARCH_KEY']}&cx=#{ENV['GOOGLE_SEARCH_ID']}&q=#{q}&start=#{start}"
+
+    http = Curl.get(url)
+    body_str = http.body_str
+    json_body = JSON.parse(body_str)
+
+    @queries = json_body['queries']
+    @request = json_body['queries']['request'][0]
+    @totalResults = @request['totalResults']
+    @count = @request['count']
+    @startIndex = @request['startIndex']
+    @endIndex = @startIndex + @count - 1
+    @items = json_body['items']
 
 
-    searcher = Searcher.new(q, start)
+    if(@queries['previousPage'])
+      previousPageStart = @queries['previousPage'][0]['startIndex']
+      @previousPage = params.slice(:utf, :q).merge(start: previousPageStart)
+    end
 
+    if(@queries['nextPage'])
+      nextPageStart = @queries['nextPage'][0]['startIndex']
+      @nextPage = params.slice(:utf, :q).merge(start: nextPageStart)
+    end
 
-    @searcher = searcher
 
     render 'shared/search'
-
-
-
-
-    # q = params[:q]
-    # start = params[:start] || 1
-    # response = HTTParty.get("https://www.googleapis.com/customsearch/v1?key=#{ENV['GOOGLE_SEARCH_KEY']}&cx=#{ENV['GOOGLE_SEARCH_ID']}&q=#{q}&start=#{start}")
-    # puts "-------\n"*10
-    # pp response
-    # puts "-------\n"*10
-    # @nextPage = response["queries"]["nextPage"]
-    # @prevPage = response["queries"]["previousPage"]
-    # @items = JSON.parse(response.body)["items"]
-
-    # pp "response #{response}"
-    # puts "\n"*20
-    # puts "response.body #{JSON.parse(response.body)}"
-    # puts "\n"*20
-
-    # body = JSON.parse(response.body)
-    # @items = body['items']
-    # render nothing: true
-    # render 'shared/search'
 
   end
 
