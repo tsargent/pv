@@ -17,6 +17,8 @@ gem 'carmen-rails'
 gem 'geokit'
 gem 'figaro'
 
+gem 'curb'
+
 gem 'postmark-rails'
 
 gem 'kaminari'

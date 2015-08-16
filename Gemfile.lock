@@ -73,6 +73,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    curb (0.8.8)
     erubis (2.7.0)
     execjs (2.6.0)
     extlib (0.9.16)
@@ -237,6 +238,7 @@ DEPENDENCIES
   byebug
   carmen-rails
   coffee-rails
+  curb
   figaro
   font-awesome-sass
   geokit
