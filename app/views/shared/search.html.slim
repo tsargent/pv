@@ -1,29 +1,37 @@
 
 #stories
   .page
-    - if @searcher.errors
-      = @searcher.errors
-    - else
-
-      h4
-        = "#{@searcher.totalResultsString} results found for "
-        b = "#{@searcher.searchTerms}"
-
-
-
-      - if @searcher.totalResults > 0
+    / div queries
+    / = @queries
+    / hr
+    / div request
+    / = @request
+    / hr
+    / div pagination
+    - if @items
+      nav
+        ul.pager
+          - if @previousPage
+            li = link_to('Previous', @previousPage)
+          - if @nextPage
+            li = link_to('Next', @nextPage)
+      div 
+        span.text-muted Showing #{@startIndex} - #{@endIndex} out of #{@totalResults} results
+      hr
+      - @items.each do |item|
+        / div = item
+        div = link_to item['htmlTitle'].html_safe, item['link']
+        div = item['htmlSnippet'].html_safe
+        / hr
+        / div = item
         hr
-        - @searcher.items.each do |item|
-          h4 = link_to raw(item['htmlTitle']), item['link']
-          p = raw(item['htmlSnippet'])
-          hr
-
-        nav
-          ul.pager
-            - if @searcher.previousPage?
-              li.previous
-                = link_to('Previous', params.merge(start: @searcher.previousStart))
-            - if @searcher.nextPage?
-              li.next
-                = link_to('Next', params.merge(start: @searcher.nextStart))
-
+      nav
+        ul.pager
+          - if @previousPage
+            li = link_to('Previous', @previousPage)
+          - if @nextPage
+            li = link_to('Next', @nextPage)
+    - else
+      h2
+        | Sorry, no results found for 
+        strong #{@request['searchTerms']}.
