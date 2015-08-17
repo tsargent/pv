@@ -21,9 +21,6 @@ Rails.application.routes.draw do
   resources :stories
   resources :posts, path: 'news'
 
-  %w( 404 500 ).each do |code|
-    get code, :to => "errors#show", :code => code
-  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -76,4 +73,10 @@ Rails.application.routes.draw do
       resources :foos
       root "stories#index"
     end
+
+  %w( 404 500 ).each do |code|
+    get code, :to => "errors#show", :code => code
+  end
+
+    
 end
