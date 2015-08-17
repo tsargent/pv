@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
   resources :posts, path: 'news'
 
-  %w( 404 422 500 503 ).each do |code|
+  %w( 404 500 ).each do |code|
     get code, :to => "errors#show", :code => code
   end
 
