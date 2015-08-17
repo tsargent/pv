@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   end
   resources :posts, path: 'news'
 
+  %w( 404 422 500 503 ).each do |code|
+    get code, :to => "errors#show", :code => code
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
