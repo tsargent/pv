@@ -82,4 +82,6 @@ Rails.application.routes.draw do
       resources :foos
       root "stories#index"
     end
+
+    
 end

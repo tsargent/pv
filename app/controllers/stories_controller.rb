@@ -14,7 +14,8 @@ class StoriesController < ApplicationController
 
 
   def show
-  	@story = Story.find(params[:id])
+    @story = Story.find(params[:id])
+    @page_title = "Project Voice | #{@story.excerpt}"
     if(!@story.display) 
       redirect_to stories_path
     end
