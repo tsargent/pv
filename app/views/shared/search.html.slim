@@ -9,28 +9,36 @@
     / hr
     / div pagination
     - if @items
-      nav
-        ul.pager
-          - if @previousPage
-            li = link_to('Previous', @previousPage)
-          - if @nextPage
-            li = link_to('Next', @nextPage)
-      div 
-        span.text-muted Showing #{@startIndex} - #{@endIndex} out of #{@totalResults} results
-      hr
-      - @items.each do |item|
-        / div = item
-        div = link_to item['htmlTitle'].html_safe, item['link']
-        div = item['htmlSnippet'].html_safe
-        / hr
-        / div = item
-        hr
-      nav
-        ul.pager
-          - if @previousPage
-            li = link_to('Previous', @previousPage)
-          - if @nextPage
-            li = link_to('Next', @nextPage)
+      .container
+        .col-md-3
+        .col-md-6
+          nav
+            ul.pager
+              - if @previousPage
+                li = link_to('Previous', @previousPage)
+              - if @nextPage
+                li = link_to('Next', @nextPage)
+          div 
+            span.text-muted Showing #{@startIndex} - #{@endIndex} out of #{@totalResults} results
+          hr
+          - @items.each do |item|
+            / div = item
+            div = link_to item['htmlTitle'].html_safe, item['link']
+            div = item['htmlSnippet'].gsub(/<br\s*\/?>/, '').html_safe
+            / hr
+            / div = item
+            hr
+          nav
+            ul.pager
+              - if @previousPage
+                li = link_to('Previous', @previousPage)
+              - if @nextPage
+                li = link_to('Next', @nextPage)
+
+
+
+        
+        .col-md-3
     - else
       h2
         | Sorry, no results found for 
