@@ -19,7 +19,10 @@
               - if @nextPage
                 li = link_to('Next', @nextPage)
           div 
-            span.text-muted Showing #{@startIndex} - #{@endIndex} out of #{@totalResults} results
+            span.text-muted Showing #{@startIndex} - #{@endIndex} out of #{@totalResults} results for 
+            strong #{@request['searchTerms']}
+            span.text-muted .
+
           hr
           - @items.each do |item|
             / div = item
@@ -34,12 +37,12 @@
                 li = link_to('Previous', @previousPage)
               - if @nextPage
                 li = link_to('Next', @nextPage)
-
-
-
-        
         .col-md-3
     - else
-      h2
-        | Sorry, no results found for 
-        strong #{@request['searchTerms']}.
+      .container
+        .col-md-3
+        .col-md-6
+          span.text-muted Sorry, no results found for 
+          strong #{@request['searchTerms']}
+          span.text-muted .
+        .col-md-3
